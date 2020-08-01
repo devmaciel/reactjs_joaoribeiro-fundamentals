@@ -24,18 +24,36 @@
 
     <script type="text/babel">
 
-        function MeuComponente(){
-
-            var nome = 'João Pedro';
-
-            return(
-
-                // precisa um wraper, que é a div, não pode colocar mais de um elemento sem a wraper.
+        class CompA extends React.Component{
+            render(){
+                return (
                 <div>
-                    <h1>Olá React!</h1>
-                    <p>Meu nome é: {nome}</p>
+                    <p>Comp A</p>    
                 </div>
-            )
+                )
+            }
+        }
+
+        class CompB extends React.Component{
+            render(){
+                return (
+                <div>
+                    <p>Comp B</p>    
+                </div>
+                )
+            }
+        }
+
+        
+        class MeuComponente extends React.Component{
+            render(){
+                return (
+                <div>
+                    <CompA />  
+                    <CompB />  
+                </div>
+                )
+            }
         }
 
         const root = document.getElementById('root');
