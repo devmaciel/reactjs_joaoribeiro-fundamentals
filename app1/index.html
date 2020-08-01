@@ -8,12 +8,14 @@
     <style>
         .red{background-color: red;color: white; padding: 10px;}
         .green{background-color: green;color: white; padding: 10px;}
+        .cor_texto{color: red;}
     </style>
 </head>
 <body>
 
     <!-- Princípio da APP react -->
     <div id="root"></div>
+    <p class="cor_texto">texto</p>
 
 
     <!-- SCRIPT REACT - DEVELOPMENT -->
@@ -29,24 +31,29 @@
 
     <script type="text/babel">
 
-        function Tempo(){
-            // jsx a apresentar
-            const conteudo = (
-                <div>
-                    <h3>Tempo atual</h3>
-                    <p>Estamos na seguinte hora: {new Date().toLocaleTimeString()}</p>
-                </div>
-            )
+    // {color:"red"} = javascript puro
+        class App extends React.Component{
+            render(){
 
-            ReactDOM.render(
-                conteudo,
-                document.getElementById('root')
-            );
+                const estilo = {
+                    color: "red",
+                    backgroundColor: "yellow",
+                    padding: "20px"
+                }
+
+                return(
+                    <div>
+                        <p style={{color:"red", backgroundColor:"yellow", padding:"20px"}}>Texto do React</p>    
+                        <p style={estilo}>Texto do React 2</p>
+                    </div>
+                )
+            }
         }
 
-        // setInterval((o que, quantos milesegundos)
-        setInterval(Tempo, 1000);   
-        // Tempo();
+        ReactDOM.render(
+            <App />,
+            document.getElementById('root')
+        )
 
     </script>
 
