@@ -24,29 +24,43 @@
 
     <script type="text/babel">
 
-        //props function
+        //func 
         function CompA(props){
-            return (
+            return(
                 <div>
-                    <p>Olá {props.nome} {props.sobrenome}.</p>
+                    <p>Nome: {props.nome}</p>
+                </div>
+            )
+        }     
+        
+        function App(){
+            return(
+                <div>
+                    <CompA nome="Ana" />
+                    <CompA nome="João" />
+                    <CompA nome="Pedro" />
+                    <CompA nome="Maria" />
                 </div>
             )
         }
 
-        //props class
-        class CompB extends React.Component{
+        //================================================
+        //class
+        class Adicao extends React.Componente{
             render(){
                 return(
                     <div>
-                        <p>Olá novamente, {this.props.nome} {this.props.sobrenome}</p>
+                        <p>O resultado de {this.props.a} + {this.props.b} = {this.props.a + this.props.b}</p>
+                        <p>O Nome é: {this.props.nome}</p>
                     </div>
                 )
             }
         }
 
         const root = document.getElementById('root');
-        // ReactDOM.render(<CompA nome="João" sobrenome="Maciel"/>,root);
-        ReactDOM.render(<CompB nome="João" sobrenome="Maciel"/>,root);
+        // ReactDOM.render(<App />,root);
+        ReactDOM.render(<Adicao a="10" b="20" />,root); //concat de Strings = 1020
+        ReactDOM.render(<Adicao a={10} b={20} nome={"João"} />,root); //concat de Number = 30
 
     </script>
 
