@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>React-JS</title>
+</head>
+<body>
+
+    <!-- Princípio da APP react -->
+    <div id="root"></div>
+
+
+    <!-- SCRIPT REACT - DEVELOPMENT -->
+    <script crossorigin src="https://unpkg.com/react@16/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+
+    <!-- SCRIPT REACT - SITE EM PRODUÇÃO -->
+    <!-- <script crossorigin src="https://unpkg.com/react@16/umd/react.production.min.js"></script> -->
+    <!-- <script crossorigin src="https://unpkg.com/react-dom@16/umd/react-dom.production.min.js"></script> -->
+
+    <!-- BABEL -->
+    <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+
+    <script type="text/babel">
+        // identificar o o div root, onde starta o html lá em cima.
+        const root = document.getElementById('root');
+
+        // ReactDOM.render('teste', root); //string
+        // ReactDOM.render(<h1>Título</h1>, root); //html com babel
+
+        let nome = "João Pedro";
+        ReactDOM.render(<h2>O meu nome é: {nome}</h2>, root); //ReactDOM consegue identificar a variável com esta sintaxe
+
+    </script>
+
+</body>
+</html>
