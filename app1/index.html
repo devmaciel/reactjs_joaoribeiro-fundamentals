@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>React-JS</title>
+    <title>ReactJS</title>
 </head>
 <body>
 
@@ -23,14 +23,23 @@
     <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
 
     <script type="text/babel">
-        // identificar o o div root, onde starta o html lá em cima.
+
+        function MeuComponente(){
+
+            var nome = 'João Pedro';
+
+            return(
+
+                // precisa um wraper, que é a div, não pode colocar mais de um elemento sem a wraper.
+                <div>
+                    <h1>Olá React!</h1>
+                    <p>Meu nome é: {nome}</p>
+                </div>
+            )
+        }
+
         const root = document.getElementById('root');
-
-        // ReactDOM.render('teste', root); //string
-        // ReactDOM.render(<h1>Título</h1>, root); //html com babel
-
-        let nome = "João Pedro";
-        ReactDOM.render(<h2>O meu nome é: {nome}</h2>, root); //ReactDOM consegue identificar a variável com esta sintaxe
+        ReactDOM.render(<MeuComponente />,root);
 
     </script>
 
