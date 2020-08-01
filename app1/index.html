@@ -4,6 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ReactJS</title>
+    
+    <style>
+        .red{background-color: red;color: white; padding: 10px;}
+        .green{background-color: green;color: white; padding: 10px;}
+    </style>
 </head>
 <body>
 
@@ -24,43 +29,41 @@
 
     <script type="text/babel">
 
-        //func 
-        function CompA(props){
-            return(
-                <div>
-                    <p>Nome: {props.nome}</p>
-                </div>
-            )
-        }     
-        
-        function App(){
-            return(
-                <div>
-                    <CompA nome="Ana" />
-                    <CompA nome="João" />
-                    <CompA nome="Pedro" />
-                    <CompA nome="Maria" />
-                </div>
-            )
-        }
-
-        //================================================
-        //class
-        class Adicao extends React.Componente{
+        class CompA extends React.Component{
             render(){
                 return(
-                    <div>
-                        <p>O resultado de {this.props.a} + {this.props.b} = {this.props.a + this.props.b}</p>
-                        <p>O Nome é: {this.props.nome}</p>
+                    <div className="red">
+                        <p>Texto do CompA</p>
                     </div>
                 )
             }
         }
 
+        class CompB extends React.Component{
+            render(){
+                return(
+                    <div className="green">
+                        <p>Texto do CompB</p>
+                    </div>
+                )
+            }
+        }
+
+
+        //====================
+        //APP
+        class App extends React.Component{
+            render(){
+                return(
+                    <div>
+                        <CompA />
+                        <CompB />
+                    </div>
+                )
+            }
+        }
         const root = document.getElementById('root');
-        // ReactDOM.render(<App />,root);
-        ReactDOM.render(<Adicao a="10" b="20" />,root); //concat de Strings = 1020
-        ReactDOM.render(<Adicao a={10} b={20} nome={"João"} />,root); //concat de Number = 30
+        ReactDOM.render(<App />,root);
 
     </script>
 
