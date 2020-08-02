@@ -29,26 +29,42 @@
 
     <script type="text/babel">
 
-        class App extends React.Component{
+        //identificação
+        class Identificacao extends React.Component{
 
             constructor(){
                 super()
                 this.state = {
-                    nome: "João"
+                    nome: "joão",
+                    idade: 25
                 }
             }
 
             render(){
                 return(
-
-                    //Não é possível, ERRO
-                    this.props.idade = "50"
-
-                    //isso é possível e vai trocar o nome
-                    this.state.nome = "Pedro"
-
                     <div>
-                        <p>Nome: {this.state.nome}</p>
+                        <Nome  nome={this.state.nome}/>
+                        <Idade idade={this.state.idade} />
+                    </div>
+                )
+            }
+        
+        }
+
+        class Nome extends React.Component{
+            render(){
+                return(
+                    <div>
+                        <p>Nome: {this.props.nome}</p>
+                    </div>
+                )
+            }
+        }
+
+        class Idade extends React.Component{
+            render(){
+                return(
+                    <div>
                         <p>Idade: {this.props.idade}</p>
                     </div>
                 )
@@ -56,7 +72,7 @@
         }
 
         ReactDOM.render(
-            <App idade="45" />,
+            <Identificacao />,
             document.getElementById('root')
         )
 
