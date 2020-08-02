@@ -29,50 +29,38 @@
 
     <script type="text/babel">
 
-        //identificação
-        class Identificacao extends React.Component{
+        class App extends React.Component{
 
-            constructor(){
-                super()
+            //================================
+            constructor(props){
+                super(props)
+                
                 this.state = {
-                    nome: "joão",
-                    idade: 25
+                    nome: "João"
                 }
+
+                //bind, ligar ao mecanismo internos do react aos eventos
+                this.cmd_click = this.cmd_click.bind(this)
             }
 
+            //evento clique
+            cmd_click(){
+                this.setState({nome: "Pedro"})
+            }
+
+            //================================
             render(){
                 return(
                     <div>
-                        <Nome  nome={this.state.nome}/>
-                        <Idade idade={this.state.idade} />
-                    </div>
-                )
-            }
-        
-        }
-
-        class Nome extends React.Component{
-            render(){
-                return(
-                    <div>
-                        <p>Nome: {this.props.nome}</p>
-                    </div>
-                )
-            }
-        }
-
-        class Idade extends React.Component{
-            render(){
-                return(
-                    <div>
-                        <p>Idade: {this.props.idade}</p>
+                        <p>Nome: {this.state.nome}</p>
+                        <button onClick={this.cmd_click}>Clique</button>
                     </div>
                 )
             }
         }
 
         ReactDOM.render(
-            <Identificacao />,
+            <App />,
             document.getElementById('root')
         )
 
