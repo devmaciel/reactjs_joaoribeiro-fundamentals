@@ -29,31 +29,43 @@
 
     <script type="text/babel">
 
-        class App extends React.Component{
-
-            //================================
+        //==========================================
+        class CompNome extends React.Component{
             constructor(props){
                 super(props)
-                
                 this.state = {
-                    nome: "João"
+                    nome: this.props.nome_inicial
                 }
 
-                //bind, ligar ao mecanismo internos do react aos eventos
+                //binding
                 this.cmd_click = this.cmd_click.bind(this)
             }
 
-            //evento clique
+            //func
             cmd_click(){
-                this.setState({nome: "Pedro"})
+                this.setState({nome: this.props.nome_final})
             }
 
-            //================================
             render(){
                 return(
                     <div>
                         <p>Nome: {this.state.nome}</p>
-                        <button onClick={this.cmd_click}>Clique</button>
+                        <button onClick={this.cmd_click}>Alterar Nome</button>
+                    </div>
+                )
+            }
+        }
+
+        //==========================================
+        class App extends React.Component{
+            render(){
+                return(
+                    <div>
+                        <h3>Exercício</h3>
+                        <hr />
+                        <CompNome nome_inicial="João" nome_final="Pedro" />
+                        <CompNome nome_inicial="Ana" nome_final="Souza" />
+                        <CompNome nome_inicial="Rafael" nome_final="Chess" />
                     </div>
                 )
             }
