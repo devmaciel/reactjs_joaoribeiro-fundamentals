@@ -15,8 +15,6 @@
 
     <!-- Princípio da APP react -->
     <div id="root"></div>
-    <p class="cor_texto">texto</p>
-
 
     <!-- SCRIPT REACT - DEVELOPMENT -->
     <script crossorigin src="https://unpkg.com/react@16/umd/react.development.js"></script>
@@ -31,27 +29,29 @@
 
     <script type="text/babel">
 
-    // {color:"red"} = javascript puro
         class App extends React.Component{
-            render(){
 
-                const estilo = {
-                    color: "red",
-                    backgroundColor: "yellow",
-                    padding: "20px"
+            constructor(){
+                super()
+
+                this.state = {
+                    nome : "João",
+                    idade: 45
                 }
+            }
 
+            render(){
                 return(
                     <div>
-                        <p style={{color:"red", backgroundColor:"yellow", padding:"20px"}}>Texto do React</p>    
-                        <p style={estilo}>Texto do React 2</p>
+                        <p>Nome: {this.state.nome} {this.props.Apelido}</p>
+                        <p>Idade: {this.state.nome}</p>
                     </div>
                 )
             }
         }
 
         ReactDOM.render(
-            <App />,
+            <App Apelido="jao" />,
             document.getElementById('root')
         )
 
