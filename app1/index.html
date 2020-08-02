@@ -33,25 +33,30 @@
 
             constructor(){
                 super()
-
                 this.state = {
-                    nome : "João",
-                    idade: 45
+                    nome: "João"
                 }
             }
 
             render(){
                 return(
+
+                    //Não é possível, ERRO
+                    this.props.idade = "50"
+
+                    //isso é possível e vai trocar o nome
+                    this.state.nome = "Pedro"
+
                     <div>
-                        <p>Nome: {this.state.nome} {this.props.Apelido}</p>
-                        <p>Idade: {this.state.nome}</p>
+                        <p>Nome: {this.state.nome}</p>
+                        <p>Idade: {this.props.idade}</p>
                     </div>
                 )
             }
         }
 
         ReactDOM.render(
-            <App Apelido="jao" />,
+            <App idade="45" />,
             document.getElementById('root')
         )
 
