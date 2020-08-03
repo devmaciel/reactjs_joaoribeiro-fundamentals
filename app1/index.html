@@ -30,38 +30,61 @@
     <script type="text/babel">  
 
         class App extends React.Component{
-
             render(){
 
-                // const nomes = ['joao', 'ana', 'carlos'] //array
-                const nomes = [
-                    'joao',
-                    'ana',
-                    'carlos'
-                ]
-                
-                //obj
-                const pessoas = [
+                //api ou base de dados no caso
+                const noticias = [
                     {
-                        nome: 'joao',
-                        profissao: 'programador'
+                        titulo: "Notícia 1",
+                        texto: "texto da notícia 1",
+                        autor: "autor1"
                     },
                     {
-                        nome: 'ana',
-                        profissao: 'programador'
+                        titulo: "Notícia 2",
+                        texto: "texto da notícia 2",
+                        autor: "autor2"
                     },
                     {
-                        nome: 'carlos',
-                        profissao: 'programador'
+                        titulo: "Notícia 3",
+                        texto: "texto da notícia 3",
+                        autor: "autor3"
+                    },
+                    {
+                        titulo: "Notícia Especial",
+                        texto: "texto da notícia Especial",
+                        autor: "autor4"
                     }
                 ]
 
-                // const final = nomes.map(nome => <p>{nome}</p>)
-                const final = pessoas.map(pessoa => <p>{pessoa.nome}, profissão: {pessoa.profissao}</p>)
-                
+                // preparação do component child(Noticia) com Map(foreach)
+                const final = noticias.map(n => <Noticia propsNoticia={n} />)
+
+                //temos um component sozinho, para mostrar somente um array específico
                 return(
                     <div>
+                        <h2>Notícias</h2>
+                        <hr />
                         {final}
+                        <hr />
+                        <Noticia propsNoticia={noticias[3]} />
+                    </div>
+                )
+            }
+        }
+
+        //===========================================
+        class Noticia extends React.Component{
+
+            constructor(props){
+                super(props)
+            }
+
+            render(){
+                return(
+                    <div>
+                        <h3>{this.props.propsNoticia.titulo}</h3>
+                        <p>{this.props.propsNoticia.texto}</p>
+                        <small><i>{this.props.propsNoticia.autor}</i></small>
                     </div>
                 )
             }
@@ -72,14 +95,6 @@
             <App />,
             document.getElementById('root')
         )
-
-        //------------------------------
-        //- JAVASCRIPT (n é react), map vai concatenar com foreach
-        //em cima fazer no react
-        // let nomes = ['joao','ana','carlos']
-        // let final = nomes.map(n => 'bom dia, ' + n)
-        // console.log(nomes)
-        // console.log(final)
 
     </script>
 
