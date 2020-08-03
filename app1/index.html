@@ -29,32 +29,15 @@
 
     <script type="text/babel">  
 
-        constructor(){
-            super()
-            this.state = {
-                nome: "João"
-            }
-
-            //binding 
-            //....
-        }
-
-        //ecma6 com binding implicito
-        metodo = () => {
-            this.setState({nome: "Pedro"})
-        }
-
-        metodo1(){
-            // console.log('aqui'); //funciona sem binding
-            this.setState({nome: "Pedro"}) //aqui não
+        metodo = (texto) => {
+            console.log(texto);
         }
 
         class App extends React.Component{
             render(){
                 return(
                     <div>
-                        <p>Nome: {this.state.nome}</p>
-                        <button onClick={this.metodo} >Alterar</button>
+                        <button onClick={() => this.metodo('value aqui')}>Clicar</button> 
                     </div>
                 )
             }
