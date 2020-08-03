@@ -31,53 +31,39 @@
 
         class App extends React.Component{
 
-            constructor(){
-                super()
-                this.state = {
-                    tempoBom: true
-                }
-            }
-
             render(){
 
-                //ternário wins forevah
+                // const nomes = ['joao', 'ana', 'carlos'] //array
+                const nomes = [
+                    'joao',
+                    'ana',
+                    'carlos'
+                ]
+                
+                //obj
+                const pessoas = [
+                    {
+                        nome: 'joao',
+                        profissao: 'programador'
+                    },
+                    {
+                        nome: 'ana',
+                        profissao: 'programador'
+                    },
+                    {
+                        nome: 'carlos',
+                        profissao: 'programador'
+                    }
+                ]
 
-                // TRUE/TRUE - n é boa prática kk
-                // return(
-                //     this.state.tempoBom && <p>O tempo está bom</p>
-                //     ||
-                //     !this.state.tempoBom && <p>O tempo está mal</p>
-                // ) 
-
-
-
-                // MÉTODO TERNÁRIO
-                // if condicao ? true : false
+                // const final = nomes.map(nome => <p>{nome}</p>)
+                const final = pessoas.map(pessoa => <p>{pessoa.nome}, profissão: {pessoa.profissao}</p>)
+                
                 return(
-                    this.state.tempoBom ? 
-                    <p>O Tempo está bom</p> :
-                    <p>O Tempo está mau</p>
+                    <div>
+                        {final}
+                    </div>
                 )
-
-
-
-                // USANDO VARIÁVEL
-                // let texto
-                // if(this.state.tempoBom){
-                //     texto = <p>O Tempo está bom</p>
-                // }else{
-                //     texto = <p>O Tempo está mau</p>
-                // }
-                // return texto
-
-
-
-                // IF-ELSE
-                // if(this.state.tempoBom){
-                //     return <p>O Tempo está bom</p>
-                // }else{
-                //     return <p>O Tempo está mal</p>
-                // }
             }
         }
 
@@ -86,6 +72,14 @@
             <App />,
             document.getElementById('root')
         )
+
+        //------------------------------
+        //- JAVASCRIPT (n é react), map vai concatenar com foreach
+        //em cima fazer no react
+        // let nomes = ['joao','ana','carlos']
+        // let final = nomes.map(n => 'bom dia, ' + n)
+        // console.log(nomes)
+        // console.log(final)
 
     </script>
 
