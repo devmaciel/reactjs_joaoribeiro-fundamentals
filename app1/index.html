@@ -29,31 +29,55 @@
 
     <script type="text/babel">  
 
-        //parent
         class App extends React.Component{
 
-            metodo(texto){
-                console.log(texto);
+            constructor(){
+                super()
+                this.state = {
+                    tempoBom: true
+                }
             }
 
             render(){
-                return(
-                    <div>
-                        <p>Texto do Componente Pai</p>
-                        <CompA evento={this.metodo} /> 
-                    </div>
-                )
-            }
-        }
 
-        //child
-        class CompA extends React.Component{
-            render(){
+                //ternário wins forevah
+
+                // TRUE/TRUE - n é boa prática kk
+                // return(
+                //     this.state.tempoBom && <p>O tempo está bom</p>
+                //     ||
+                //     !this.state.tempoBom && <p>O tempo está mal</p>
+                // ) 
+
+
+
+                // MÉTODO TERNÁRIO
+                // if condicao ? true : false
                 return(
-                    <div>
-                        <button onClick={() => this.props.evento('texto do child')}>Clicar</button>
-                    </div>
+                    this.state.tempoBom ? 
+                    <p>O Tempo está bom</p> :
+                    <p>O Tempo está mau</p>
                 )
+
+
+
+                // USANDO VARIÁVEL
+                // let texto
+                // if(this.state.tempoBom){
+                //     texto = <p>O Tempo está bom</p>
+                // }else{
+                //     texto = <p>O Tempo está mau</p>
+                // }
+                // return texto
+
+
+
+                // IF-ELSE
+                // if(this.state.tempoBom){
+                //     return <p>O Tempo está bom</p>
+                // }else{
+                //     return <p>O Tempo está mal</p>
+                // }
             }
         }
 
