@@ -33,11 +33,31 @@
             console.log(texto);
         }
 
+        //parent
         class App extends React.Component{
+
+            metodo(){
+                console.log('Olá Pai');
+            }
+
             render(){
                 return(
                     <div>
-                        <button onClick={() => this.metodo('value aqui')}>Clicar</button> 
+                        <p>Texto do Componente Pai</p>
+                        <CompA nome="Joao" />
+                        <CompA metodo={this.metodo} /> 
+                    </div>
+                )
+            }
+        }
+
+        //child
+        class CompA extends React.Component{
+            render(){
+                return(
+                    <div>
+                        <p>Nome: {this.props.nome}</p>
+                        <button onClick={this.props.metodo}>Clicar</button>
                     </div>
                 )
             }
