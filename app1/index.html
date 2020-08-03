@@ -27,50 +27,40 @@
     <!-- BABEL -->
     <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
 
-    <script type="text/babel">
+    <script type="text/babel">  
 
-        //==========================================
-        class CompNome extends React.Component{
-            constructor(props){
-                super(props)
-                this.state = {
-                    nome: this.props.nome_inicial
-                }
-
-                //binding
-                this.cmd_click = this.cmd_click.bind(this)
+        constructor(){
+            super()
+            this.state = {
+                nome: "João"
             }
 
-            //func
-            cmd_click(){
-                this.setState({nome: this.props.nome_final})
-            }
-
-            render(){
-                return(
-                    <div>
-                        <p>Nome: {this.state.nome}</p>
-                        <button onClick={this.cmd_click}>Alterar Nome</button>
-                    </div>
-                )
-            }
+            //binding 
+            //....
         }
 
-        //==========================================
+        //ecma6 com binding implicito
+        metodo = () => {
+            this.setState({nome: "Pedro"})
+        }
+
+        metodo1(){
+            // console.log('aqui'); //funciona sem binding
+            this.setState({nome: "Pedro"}) //aqui não
+        }
+
         class App extends React.Component{
             render(){
                 return(
                     <div>
-                        <h3>Exercício</h3>
-                        <hr />
-                        <CompNome nome_inicial="João" nome_final="Pedro" />
-                        <CompNome nome_inicial="Ana" nome_final="Souza" />
-                        <CompNome nome_inicial="Rafael" nome_final="Chess" />
+                        <p>Nome: {this.state.nome}</p>
+                        <button onClick={this.metodo} >Alterar</button>
                     </div>
                 )
             }
         }
 
+        //=====================================================
         ReactDOM.render(
             <App />,
             document.getElementById('root')
