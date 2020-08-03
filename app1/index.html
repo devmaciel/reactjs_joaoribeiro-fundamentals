@@ -29,23 +29,18 @@
 
     <script type="text/babel">  
 
-        metodo = (texto) => {
-            console.log(texto);
-        }
-
         //parent
         class App extends React.Component{
 
-            metodo(){
-                console.log('Olá Pai');
+            metodo(texto){
+                console.log(texto);
             }
 
             render(){
                 return(
                     <div>
                         <p>Texto do Componente Pai</p>
-                        <CompA nome="Joao" />
-                        <CompA metodo={this.metodo} /> 
+                        <CompA evento={this.metodo} /> 
                     </div>
                 )
             }
@@ -56,8 +51,7 @@
             render(){
                 return(
                     <div>
-                        <p>Nome: {this.props.nome}</p>
-                        <button onClick={this.props.metodo}>Clicar</button>
+                        <button onClick={() => this.props.evento('texto do child')}>Clicar</button>
                     </div>
                 )
             }
