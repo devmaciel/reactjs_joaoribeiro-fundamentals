@@ -33,46 +33,12 @@
             
             render(){
 
-                // const nomes = ['joao','ana','carlos'];
-                // const final = nomes.map(nome => <h3 key={nome} >{nome}</h3>)
-                const socios = [
-                    {
-                        id: 1,
-                        nome: "João",
-                        idade: "46"
-                    },
-                    {
-                        id: 2,
-                        nome: "João",
-                        idade: "25"
-                    },
-                ]
-
-                //key não fica disponível pra view da props "KEY"
-                //mas podemos ver como socio.id
-                const final = socios.map(s => <MostrarSocio key={s.id} socio={s} />)
+                const nomes = ['joao','ana','carlos','joao']
+                const final = nomes.map((nome, index) => <h3 key={index}> {index} - {nome}</h3>)
 
                 return(
                     <div>
                        {final}
-                    </div>
-                )
-            }
-            
-        }
-
-        //============================
-        class MostrarSocio extends React.Component{
-
-            constructor(props){
-                super(props)
-            }
-
-            render(){
-                return(
-                    <div>
-                        <p>Nome: {this.props.socio.nome}</p>
-                        <p>Idade: {this.props.socio.idade}</p>
                     </div>
                 )
             }
