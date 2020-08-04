@@ -9,6 +9,7 @@
         .red{background-color: red;color: white; padding: 10px;}
         .green{background-color: green;color: white; padding: 10px;}
         .cor_texto{color: red;}
+        .tamanho{font-size: 24px;}
     </style>
 </head>
 <body>
@@ -30,15 +31,21 @@
     <script type="text/babel">  
 
         class App extends React.Component{
+            constructor(props){
+                super(props)
+            }
             
             render(){
 
-                const nomes = ['joao','ana','carlos','joao']
-                const final = nomes.map((nome, index) => <h3 key={index}> {index} - {nome}</h3>)
+                let estilo = 'red'
+                let estilo2 = this.props.estilo ? 'green' : ''
+                let tamanho = this.props.tamanho ? 'tamanho' : ''
 
                 return(
                     <div>
-                       {final}
+                       <p className="red">App</p>
+                       <p className={estilo}>App2</p>
+                       <p className={`${estilo2} tamanho`}>App3</p>
                     </div>
                 )
             }
@@ -46,7 +53,7 @@
 
         //=====================================================
         ReactDOM.render(
-            <App />,
+            <App estilo={true} tamanho={true}/>,
             document.getElementById('root')
         )
 
