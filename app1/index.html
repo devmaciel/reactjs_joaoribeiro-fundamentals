@@ -17,10 +17,7 @@
     <!-- Princípio da APP react -->
     <div id="root"></div>
 
-    <!-- exemplo no html -->
-   <!-- <option value="item1">Item 1</option>
-   <option value="item2">Item 2</option>
-   <option value="item3" selected>Item 3</option> -->
+    
 
     <!-- SCRIPT REACT - DEVELOPMENT -->
     <script crossorigin src="https://unpkg.com/react@16/umd/react.development.js"></script>
@@ -36,31 +33,43 @@
     <script type="text/babel">  
 
         class App extends React.Component{
-
+        
             constructor(){
                 super()
                 this.state = {
-                    item: 'item3'
+                    username: '',
+                    password: ''
                 }
             }
 
-            alterarItem = e => {
-                this.setState({item: e.target.value})
+            alterarUsername = (e) => {
+                this.setState({username: e.target.value})
+            }
+
+            alterarPassword = (e) => {
+                this.setState({password: e.target.value})
+            }
+
+            submeterForm = (e) => {
+                console.log("Username: " + this.state.username)
+                console.log("Password: " + this.state.password)
+                e.preventDefault()
             }
 
             render(){
                 return(
                     <div>
-                        <select onChange={this.alterarItem} value={this.state.item}>
-                            <option value="item1">Item1</option>
-                            <option value="item2">Item2</option>
-                            <option value="item3">Item3</option>
-                        </select>
-
-                        <p>Item selecionado: {this.state.item}</p>
+                        <form onSubmit={this.submeterForm}>
+                            <input type="text" value={this.state.username} onChange={this.alterarUsername} />
+                            <br />
+                            <input type="password" value={this.state.password} onChange={this.alterarPassword} />
+                            <br />
+                            <input type="submit" value="Entrar" />
+                        </form>
                     </div>
                 )
             }
+
         }
 
         //=====================================================
