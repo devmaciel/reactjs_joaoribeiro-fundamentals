@@ -18,8 +18,9 @@
     <div id="root"></div>
 
     <!-- exemplo no html -->
-    <!-- <textarea name="" id="" cols="20" rows="5">value é dentro</textarea>
-    <input type="text" value="nome"> -->
+   <!-- <option value="item1">Item 1</option>
+   <option value="item2">Item 2</option>
+   <option value="item3" selected>Item 3</option> -->
 
     <!-- SCRIPT REACT - DEVELOPMENT -->
     <script crossorigin src="https://unpkg.com/react@16/umd/react.development.js"></script>
@@ -39,20 +40,24 @@
             constructor(){
                 super()
                 this.state = {
-                    texto: "este é o texto do textarea"
+                    item: 'item3'
                 }
             }
 
-            alterarTexto = (event) => {
-                this.setState({texto: event.target.value})
+            alterarItem = e => {
+                this.setState({item: e.target.value})
             }
 
             render(){
                 return(
                     <div>
-                        <textarea onChange={this.alterarTexto} value={this.state.texto} cols="20" rows="5"></textarea>
+                        <select onChange={this.alterarItem} value={this.state.item}>
+                            <option value="item1">Item1</option>
+                            <option value="item2">Item2</option>
+                            <option value="item3">Item3</option>
+                        </select>
 
-                        <h3>Texto: {this.state.texto}</h3>
+                        <p>Item selecionado: {this.state.item}</p>
                     </div>
                 )
             }
