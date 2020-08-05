@@ -33,43 +33,41 @@
     <script type="text/babel">  
 
         class App extends React.Component{
-        
+
+            //life cycle
+
+            // 1
             constructor(){
                 super()
                 this.state = {
-                    username: '',
-                    password: ''
+                    nome: "João"
                 }
+                console.log('constructor')
             }
 
-            alterarUsername = (e) => {
-                this.setState({username: e.target.value})
+            // 3
+            componentDidMount(){
+                console.log('montado')
             }
 
-            alterarPassword = (e) => {
-                this.setState({password: e.target.value})
+            //metodo
+            alterar = () => {
+                console.log('alterar')
+                this.setState({nome: "Pedro"})
             }
 
-            submeterForm = (e) => {
-                console.log("Username: " + this.state.username)
-                console.log("Password: " + this.state.password)
-                e.preventDefault()
-            }
-
+            // 2
             render(){
+                console.log('render')
                 return(
                     <div>
-                        <form onSubmit={this.submeterForm}>
-                            <input type="text" value={this.state.username} onChange={this.alterarUsername} />
-                            <br />
-                            <input type="password" value={this.state.password} onChange={this.alterarPassword} />
-                            <br />
-                            <input type="submit" value="Entrar" />
-                        </form>
+                        Olá {this.state.nome}
+                        <div>
+                            <button onClick={this.alterar}>Alterar</button>
+                        </div>
                     </div>
                 )
             }
-
         }
 
         //=====================================================
