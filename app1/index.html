@@ -33,41 +33,7 @@
     <script type="text/babel">  
 
         class App extends React.Component{
-
-            //life cycle
-
-            // 1
-            constructor(){
-                super()
-                this.state = {
-                    nome: "João"
-                }
-                console.log('constructor')
-            }
-
-            // 3
-            componentDidMount(){
-                console.log('montado')
-            }
-
-            //metodo
-            alterar = () => {
-                console.log('alterar')
-                this.setState({nome: "Pedro"})
-            }
-
-            // 2
-            render(){
-                console.log('render')
-                return(
-                    <div>
-                        Olá {this.state.nome}
-                        <div>
-                            <button onClick={this.alterar}>Alterar</button>
-                        </div>
-                    </div>
-                )
-            }
+            
         }
 
         //=====================================================
