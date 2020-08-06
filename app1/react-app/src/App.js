@@ -1,12 +1,24 @@
 import React from 'react';
-import Identificacao from './components/Identificacao';
+import Child from './Child';
 
 class App extends React.Component{
+
+	state = {
+		nome: "Default",
+	}
+
+	Alterar = (novoNome) =>{
+		this.setState({nome: novoNome});
+	}
+
 	render(){
 		return(
 			<div>
-				<p>Componente Principal</p>
-				<Identificacao />
+				<h3>Parent</h3>
+				<button onClick={this.Alterar('Pedro')}>Alterar</button>
+				<hr/>
+				<Child nome={this.state.nome}/>
+				<Child funcaoAlterar = {this.Alterar}/>
 			</div>
 		)
 	}
